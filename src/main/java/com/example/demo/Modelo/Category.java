@@ -31,7 +31,7 @@ public class Category {
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="category")
     @JsonIgnoreProperties("category")
-    private List<Machine> machines;
+    private List<Audience> audience;
 
     public Integer getId() {
         return id;
@@ -57,12 +57,12 @@ public class Category {
         this.description = description;
     }
 
-    public List<Machine> getMachines() {
-        return machines;
+    public List<Audience> getAudience() {
+        return audience;
     }
 
-    public void setMachines(List<Machine> machines) {
-        this.machines = machines;
+    public void setAudience(List<Audience> audience) {
+        this.audience = audience;
     }
     
     

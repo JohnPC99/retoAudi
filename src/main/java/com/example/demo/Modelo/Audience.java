@@ -5,44 +5,37 @@
 package com.example.demo.Modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author USUARIO
  */
 @Entity
-@Table(name = "machine")
-public class Machine {
+@Table(name = "audience")
+public class Audience {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Integer id;
      private String name;
-     private String brand;
-     private Integer year;
+     private String owner;
+     private Integer capacity;
      private String description;
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("machines")
+    @JsonIgnoreProperties("audiences")
     private Category category;
 
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "machine")
-    @JsonIgnoreProperties({"machine","client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
+    @JsonIgnoreProperties({"audience","client"})
     private List<Message> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "machine")
-    @JsonIgnoreProperties({"machine","messages"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
+    @JsonIgnoreProperties({"audience","messages"})
     public List<Reservation> reservations;
 
     public Integer getId() {
@@ -61,20 +54,20 @@ public class Machine {
         this.name = name;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getCapacity() {
+        return capacity;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
     }
 
     public String getDescription() {

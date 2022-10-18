@@ -4,13 +4,13 @@
  */
 package com.example.demo.Interface;
 
-import com.example.demo.Modelo.Machine;
+import com.example.demo.Modelo.Audience;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author USUARIO
  */
-public interface MachineInterface  extends CrudRepository <Machine, Integer> {
+public interface AudienceInterface extends CrudRepository <Audience, Integer> {
     
 }

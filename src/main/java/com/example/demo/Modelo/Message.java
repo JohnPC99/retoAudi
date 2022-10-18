@@ -30,7 +30,7 @@ public class Message {
   @ManyToOne
     @JoinColumn(name="id")
     @JsonIgnoreProperties({"messages","reservations"})
-    private Machine machine;
+    private Audience audience;
 
     @ManyToOne
     @JoinColumn(name="clientId")
@@ -53,12 +53,12 @@ public class Message {
         this.messageText = messageText;
     }
 
-    public Machine getMachine() {
-        return machine;
+    public Audience getAudience() {
+        return audience;
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setAudience(Audience audience) {
+        this.audience = audience;
     }
 
     public Client getClient() {
